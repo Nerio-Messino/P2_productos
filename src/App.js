@@ -3,10 +3,13 @@ import Header from "./Header";
 import './App.css';
 import CONFIG from "./config/config";
 import { mockdata } from "./constants/products";
+import SearchPage from "./SearchPage";
+
 
 function App() {
 const USE_SERVER = CONFIG.use_server;
-const[resultado,setResultado]=useState("null");
+const[resultado,setResultado]=useState();
+const[error, setError] = useState();
 
 const callServer = async () => {    
     if(USE_SERVER) {
@@ -33,6 +36,14 @@ const callServer = async () => {
   return (
     <div className="App">
         <Header/>
+        <div>
+          <h3>Buscar producto</h3>
+        </div>
+        <div>
+          <h3>Introducir parametros</h3>
+        </div>
+        <SearchPage/>
+        
      </div>   
   );
 }
